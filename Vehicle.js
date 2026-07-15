@@ -35,3 +35,14 @@ const Vehicle = mongoose.model("vehicles", new mongoose.Schema(
         address: String
     }
 ))
+
+app.get("/test", (req, res) => {
+
+    res.send("hello world")
+})
+
+app.post("/add-vehicle", async (req, res) => {
+
+    await Vehicle.create(req.body)
+    res.json({ "status": "success" })
+})
