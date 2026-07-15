@@ -46,3 +46,14 @@ app.post("/add-vehicle", async (req, res) => {
     await Vehicle.create(req.body)
     res.json({ "status": "success" })
 })
+
+app.post("/view-vehicles", async (req, res) => {
+
+    const vehicles = await Vehicle.find()
+    res.json(vehicles)
+})
+
+app.listen(3000, () => {
+
+    console.log("server started")
+})
